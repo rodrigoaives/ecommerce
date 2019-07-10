@@ -2,21 +2,26 @@
 
 require_once("vendor/autoload.php");
 
-$app = new \Slim\Slim();
+// Namespaces (para dizer a origem das Classes)
+use \Slim\Slim;
+use \Hcode\Page;
+
+// O slim serve para criar uma nova aplicacao usando o Slim
+$app = new Slim();
 
 $app->config('debug', true);
 
 $app->get('/', function() {
-	
-	//Namespace
-	$sql = new Hcode\DB\Sql();
-	
-	$results = $sql->select("SELECT * FROM tb_users");
 
-	echo json_encode($results);
+	// Cria a nova pagina
+	$page = new Page(); 
+
+	// Define a pagina principal
+	$page->setTpl("index");
 
 });
 
+// Roda a aplicacao
 $app->run();
 
  ?>
