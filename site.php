@@ -73,7 +73,8 @@ $app->get("/cart", function(){
 
 	$page->setTpl("cart", [
 		'cart'=>$cart->getValues(),
-		'products'=>$cart->getProducts()
+		'products'=>$cart->getProducts(),
+		'error'=>Cart::getMsgError()
 	]);
 
 });
@@ -123,6 +124,17 @@ $app->get("/cart/:idproduct/remove", function($idproduct) {
 	$cart = Cart::getFromSession(); 
 
 	$cart->removeProduct($product, true); // O parametro true é o parametro que irá definir a deleção de todas as unidades de um determinado produto do carrinho
+
+	header("Location: /cart");
+	exit;
+
+});
+
+$app->get("/cart/freight", function() {
+
+	$cart = Cart::getFromSession();
+
+	$cart->setFreight($_GET['zipcode']);
 
 	header("Location: /cart");
 	exit;
