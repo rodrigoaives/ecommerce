@@ -9,7 +9,7 @@ $app->get('/admin', function() {
 
 	$page = new PageAdmin();
  
-	$page ->setTpl("index");
+	$page->setTpl("index");
  
 });
 
@@ -20,7 +20,7 @@ $app->get('/admin/login', function() {
 		"footer"=>false
 	]);
  
-	$page ->setTpl("login");
+	$page->setTpl("login");
  
 });
 
@@ -48,7 +48,7 @@ $app->get("/admin/forgot", function() {
 		"footer"=>false
 	]);
  
-	$page ->setTpl("forgot");
+	$page->setTpl("forgot");
 
 });
 
@@ -68,7 +68,7 @@ $app->get("/admin/forgot/sent", function() {
 		"footer"=>false
 	]);
  
-	$page ->setTpl("forgot-sent");
+	$page->setTpl("forgot-sent");
 
 });
 
@@ -81,7 +81,7 @@ $app->get("/admin/forgot/reset", function(){
 		"footer"=>false
 	]);
  
-	$page ->setTpl("forgot-reset", array(
+	$page->setTpl("forgot-reset", array(
 		"name"=>$user["desperson"],
 		"code"=>$_GET["code"]
 	));
@@ -109,7 +109,7 @@ $app->post("/admin/forgot/reset", function() {
 		"footer"=>false
 	]);
  
-	$page ->setTpl("forgot-reset-success");
+	$page->setTpl("forgot-reset-success");
 
 });
 
