@@ -48,9 +48,9 @@
                   {loop="$users"}
                   <tr>
                     <td>{$value.iduser}</td>
-                    <td>{function="utf8_decode($value.desperson)"}</td>
+                    <td>{$value.desperson}</td>
                     <td>{$value.desemail}</td>
-                    <td>{$value.deslogin}</td>
+                    <td>{$value.deslogin}</td/>
                     <td>{if="$value.inadmin == 1"}Sim{else}Não{/if}</td>
                     <td>
                       <a href="/admin/users/{$value.iduser}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Editar</a>
@@ -69,7 +69,7 @@
                 {/loop}
               </ul>
             </div>
-        </div>
+          </div>
   	</div>
   </div>
 
